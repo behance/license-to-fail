@@ -1,0 +1,22 @@
+{
+  "name": "license-to-fail",
+  "version": "1.0.0",
+  "description": "Exits when a license is found that does not match the whitelist passed in.",
+  "main": "index.js",
+  "files": [
+    "bin",
+    "index.js",
+    "example-config.js"
+  ],
+  "dependencies": {
+    "license-checker": "^6.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "license-to-fail": "bin/license-to-fail.js"
+  },
+  "author": "Henry Zhu",
+  "license": "Apache-2.0"
+}
