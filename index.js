@@ -7,7 +7,7 @@ function isAllowedPackage(allowedPackages, dependency) {
 }
 
 function log(dep) {
-  console.log(dep.name + " " + dep.licenses);
+  console.log(dep.name + " " + dep.licenses + ": " + dep.repository);
 }
 
 module.exports = function checkLicenses(config) {
@@ -34,7 +34,12 @@ module.exports = function checkLicenses(config) {
   }, function(err, json) {
     var prohibitedDeps = Object.keys(json)
       .map(function(dep) {
-        return { name: dep, licenses: json[dep].licenses };
+        return {
+          name: dep,
+          licenses: json[dep].licenses,
+          repository: json[dep].repository,
+          licenseFile: json[dep].licenseFile
+        };
       })
       .filter(function(dep) {
         // weird unknown package?
