@@ -1,8 +1,15 @@
 module.exports = {
-  "allowedPackages": [],
+  "allowedPackages": [{
+    "name": "spdx-license-ids@1.2.2",
+    "reason": "Unlicense"
+  }],
   "disallowedPackages": [],
   "allowedLicenses": [
     "MIT",
-    "ISC"
+    "ISC",
+    "Apache",
+    "BSD",
+    "WTF",
+    "Public Domain"
   ]
 };

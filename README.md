@@ -1,6 +1,6 @@
 ## license-to-fail
 
-Will send `process.exit(1)` when any packages in `node_modules` don't satisfy your `allowedLicenses`. (You can add exceptions)
+Will send `process.exit(1)` when any packages in `node_modules` don't satisfy your `allowedLicenses`. You can also add exceptions
 
 > Uses [`license-checker`](https://github.com/davglass/license-checker).
 
@@ -73,7 +73,7 @@ module.exports = {
 
 ### Example Usage/Output
 
-> On the project itself
+> Running the tool on itself
 
 If the config was `MIT, ISC` only: 
 
@@ -106,9 +106,8 @@ jju@1.3.0 WTFPL
 # Error with process.exit(1)
 ```
 
-If we add `["Apache","WTF","BSD","Unlicense"]`:
+If we add more `allowedLicenses`:
 
 ```
-$ ./bin/license-to-fail.js ./config.js
-# no output
+$ npm run check-license # no failures
 ```
