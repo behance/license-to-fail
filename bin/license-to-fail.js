@@ -21,18 +21,17 @@ function error() {
   process.exit(1);
 }
 
+var packageJson = require(path.join(process.cwd(), "package.json"));
+
 if (configPath) {
   config = require(path.resolve(configPath));
 } else {
-  try {
-    configPath = require(path.join(process.cwd(), "package.json"));
-  } catch (e) {
-    error();
-  }
-  config = configPath["license-to-fail"];
+  config = packageJson["license-to-fail"];
   if (!config) {
     error();
   }
 }
+
+config.__currentPackage = packageJson.name;
 
 require("../index")(config);

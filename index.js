@@ -11,6 +11,7 @@ function log(dep) {
 }
 
 module.exports = function checkLicenses(config) {
+  var currentPackage = config.__currentPackage;
   var allowedLicenses = config.allowedLicenses;
   var allowedPackages = config.allowedPackages;
 
@@ -44,6 +45,8 @@ module.exports = function checkLicenses(config) {
       .filter(function(dep) {
         // weird unknown package?
         if (dep.name === "undefined@undefined") return false;
+        // don't check the current package
+        if (dep.name.indexOf(currentPackage) !== -1) return false;
 
         if (dep.licenses === 'UNKNOWN') {
           log(dep);
