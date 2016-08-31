@@ -1,6 +1,8 @@
 ## license-to-fail
 
-Will send `process.exit(1)` when any packages in `node_modules` don't satisfy your `allowedLicenses`. You can also add exceptions
+Will send `process.exit(1)` when any packages in `node_modules` don't satisfy your `allowedLicenses`.
+
+You can also add exceptions.
 
 > Uses [`license-checker`](https://github.com/davglass/license-checker).
 
@@ -29,6 +31,8 @@ $ ./node_modules/.bin/license-to-fail.js init
 ```
 
 ### Config
+
+It will ignore (not fail) on `UNKNOWN` licenses and just print them out to the console.
 
 `allowedPackages`: takes an array of objects. The only required field is `name`.
 `allowedLicenses`: takes an array of strings and calls `indexOf` on the licenses.
