@@ -1,9 +1,7 @@
 ## license-to-fail [![npm](https://img.shields.io/npm/v/license-to-fail.svg)](https://www.npmjs.com/package/license-to-fail) [![travis](https://img.shields.io/travis/behance/license-to-fail/master.svg)](https://travis-ci.org/behance/license-to-fail)
 
 
-Will send `process.exit(1)` when any packages in `node_modules` don't satisfy your `allowedLicenses`.
-
-You can also add exceptions.
+Will error when any packages in `node_modules` don't satisfy your allowed licenses.
 
 > Uses [`license-checker`](https://github.com/davglass/license-checker).
 
