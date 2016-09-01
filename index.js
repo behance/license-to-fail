@@ -62,12 +62,14 @@ module.exports = function checkLicenses(config) {
         // don't check the current package
         if (dep.name.indexOf(currentPackage.name) !== -1) return false;
 
-        if (dep.licenses === 'UNKNOWN') {
+        var allowedDep = isAllowedDependency(dep);
+
+        if (!allowedDep && dep.licenses === 'UNKNOWN') {
           log(dep);
           return false;
         };
 
-        return !isAllowedDependency(dep);
+        return !allowedDep;
       });
 
     if (prohibitedDeps.length) {
