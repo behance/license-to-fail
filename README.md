@@ -93,18 +93,22 @@ module.exports = {
 
 You would have this output:
 
+It will try to print the package name, version, license, and repo.
+
+It will also print whether it is a direct dependency of the current node_modules (looks at package.json) or not.
+
 ```
 $ ./bin/license-to-fail.js ./config.js
 
 Disallowed Licenses:
-spdx-correct@1.0.2 Apache-2.0
-validate-npm-package-license@3.0.1 Apache-2.0
-package-license@0.1.2 Apache2
-npm-license@0.3.3 BSD
-normalize-package-data@2.3.5 BSD-2-Clause
-license-checker@6.0.0 BSD-3-Clause
-spdx-license-ids@1.2.2 Unlicense
-jju@1.3.0 WTFPL
+INDIRECT DEP - spdx-correct@1.0.2 Apache-2.0: https://github.com/kemitchell/spdx-correct.js
+INDIRECT DEP - validate-npm-package-license@3.0.1 Apache-2.0: https://github.com/kemitchell/validate-npm-package-license.js
+INDIRECT DEP - package-license@0.1.2 Apache2: https://github.com/AceMetrix/package-license
+INDIRECT DEP - npm-license@0.3.3 BSD: https://github.com/AceMetrix/npm-license
+INDIRECT DEP - normalize-package-data@2.3.5 BSD-2-Clause: https://github.com/npm/normalize-package-data
+INDIRECT DEP - license-checker@6.0.0 BSD-3-Clause: https://github.com/davglass/license-checker
+INDIRECT DEP - spdx-license-ids@1.2.2 Unlicense: https://github.com/shinnn/spdx-license-ids
+INDIRECT DEP - jju@1.3.0 WTFPL: https://github.com/rlidwka/jju
 
 # Error with process.exit(1)
 ```
