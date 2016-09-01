@@ -1,8 +1,8 @@
-var checker = require("license-checker");
+var checker = require('license-checker');
 
 function isAllowedPackage(allowedPackages, dependency) {
   return allowedPackages.some(function(pkg) {
-    return pkg.name.indexOf(dependency.name.toLowerCase().split("@")[0]) !== -1;
+    return pkg.name.indexOf(dependency.name.toLowerCase().split('@')[0]) !== -1;
   });
 }
 
@@ -17,16 +17,16 @@ module.exports = function checkLicenses(config) {
       type = 'DEP';
     }
     else if (currentPackage.devDependencies[dep.name]) {
-      type = 'DEVDEP'
+      type = 'DEVDEP';
     }
     else if (currentPackage.peerDependencies[dep.name]) {
-      type = 'PEERDEP'
+      type = 'PEERDEP';
     }
     else if (currentPackage.optionalDependencies[dep.name]) {
-      type = 'OPTIONALDEP'
+      type = 'OPTIONALDEP';
     }
 
-    console.log(type + " - " + dep.name + " " + dep.licenses + ": " + dep.repository);
+    console.log(type + ' - ' + dep.name + ' ' + dep.licenses + ': ' + dep.repository);
   }
 
   function isAllowedDependency(dependency) {
@@ -58,7 +58,7 @@ module.exports = function checkLicenses(config) {
       })
       .filter(function(dep) {
         // weird unknown package?
-        if (dep.name === "undefined@undefined") return false;
+        if (dep.name === 'undefined@undefined') return false;
         // don't check the current package
         if (dep.name.indexOf(currentPackage.name) !== -1) return false;
 
@@ -73,8 +73,8 @@ module.exports = function checkLicenses(config) {
       });
 
     if (prohibitedDeps.length) {
-      console.log("");
-      console.log("Disallowed Licenses:")
+      console.log('');
+      console.log('Disallowed Licenses:')
       prohibitedDeps.sort(function(a,b) {
         var aLower = a.licenses.toLowerCase();
         var bLower = b.licenses.toLowerCase();
