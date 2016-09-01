@@ -74,8 +74,8 @@ module.exports = function checkLicenses(config) {
 
     if (prohibitedDeps.length) {
       console.log('');
-      console.log('Disallowed Licenses:')
-      prohibitedDeps.sort(function(a,b) {
+      console.log('Disallowed Licenses:');
+      prohibitedDeps.sort(function(a, b) {
         var aLower = a.licenses.toLowerCase();
         var bLower = b.licenses.toLowerCase();
         return aLower < bLower ? -1 : aLower > bLower ? 1 : 0;
