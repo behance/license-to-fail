@@ -32,6 +32,12 @@ if (configPath) {
   }
 }
 
-config.__currentPackage = packageJson.name;
+config.__currentPackage = {
+  name: packageJson.name,
+  dependencies: packageJson.dependencies || [],
+  devDependencies: packageJson.devDependencies || [],
+  peerDependencies: packageJson.peerDependencies || [],
+  optionalDependencies: packageJson.optionalDependencies || []
+};
 
 require("../index")(config);

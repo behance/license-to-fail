@@ -6,14 +6,28 @@ function isAllowedPackage(allowedPackages, dependency) {
   });
 }
 
-function log(dep) {
-  console.log(dep.name + " " + dep.licenses + ": " + dep.repository);
-}
-
 module.exports = function checkLicenses(config) {
   var currentPackage = config.__currentPackage;
   var allowedLicenses = config.allowedLicenses;
   var allowedPackages = config.allowedPackages;
+
+  function log(dep) {
+    var type = 'INDIRECT DEP';
+    if (currentPackage.dependencies[dep.name]) {
+      type = 'DEP';
+    }
+    else if (currentPackage.devDependencies[dep.name]) {
+      type = 'DEVDEP'
+    }
+    else if (currentPackage.peerDependencies[dep.name]) {
+      type = 'PEERDEP'
+    }
+    else if (currentPackage.optionalDependencies[dep.name]) {
+      type = 'OPTIONALDEP'
+    }
+
+    console.log(type + " - " + dep.name + " " + dep.licenses + ": " + dep.repository);
+  }
 
   function isAllowedDependency(dependency) {
     var licenses = dependency.licenses;
@@ -46,7 +60,7 @@ module.exports = function checkLicenses(config) {
         // weird unknown package?
         if (dep.name === "undefined@undefined") return false;
         // don't check the current package
-        if (dep.name.indexOf(currentPackage) !== -1) return false;
+        if (dep.name.indexOf(currentPackage.name) !== -1) return false;
 
         if (dep.licenses === 'UNKNOWN') {
           log(dep);
