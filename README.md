@@ -15,9 +15,9 @@ $ npm install license-to-fail --save-dev
 
 ```bash
 # use "license-to-fail" key in package.json
-$ ./node_modules/.bin/license-to-fail.js
+$ ./node_modules/.bin/license-to-fail
 # pass a path to external config file
-$ ./node_modules/.bin/license-to-fail.js ./path-to-config.js
+$ ./node_modules/.bin/license-to-fail ./path-to-config.js
 ```
 
 > If there is no output, then there aren't any errors.
@@ -26,7 +26,7 @@ $ ./node_modules/.bin/license-to-fail.js ./path-to-config.js
 
 ```bash
 # creates a config.js file with the config in ./example-config.js
-$ ./node_modules/.bin/license-to-fail.js init
+$ ./node_modules/.bin/license-to-fail init
 ```
 
 ### Config
@@ -78,7 +78,7 @@ module.exports = {
 
 > Running the tool on itself
 
-If the config was `MIT, ISC` only: 
+If the config was `MIT, ISC` only:
 
 ```js
 module.exports = {
@@ -98,7 +98,7 @@ It will try to print the package name, version, license, and repo.
 It will also print whether it is a direct dependency of the current node_modules (looks at package.json) or not.
 
 ```
-$ ./bin/license-to-fail.js ./config.js
+$ ./bin/license-to-fail ./config.js
 
 Disallowed Licenses:
 INDIRECT DEP - spdx-correct@1.0.2 Apache-2.0: https://github.com/kemitchell/spdx-correct.js
