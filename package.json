@@ -9,7 +9,7 @@
     "example-config.js"
   ],
   "dependencies": {
-    "license-checker": "hzoo/license-checker#readme-temp-fix"
+    "license-checker": "^7.0.0"
   },
   "scripts": {
     "check-license": "./bin/license-to-fail.js ./example-config.js",
