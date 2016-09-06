@@ -10,6 +10,7 @@ module.exports = function checkLicenses(config) {
   var currentPackage = config.__currentPackage;
   var allowedLicenses = config.allowedLicenses;
   var allowedPackages = config.allowedPackages;
+  var warnOnUnknown = config.warnOnUnknown;
 
   function log(dep) {
     var type = 'INDIRECT DEP';
@@ -57,19 +58,18 @@ module.exports = function checkLicenses(config) {
         };
       })
       .filter(function(dep) {
-        // weird unknown package?
-        if (dep.name === 'undefined@undefined') return false;
+        if (isAllowedDependency(dep)) return false;
         // don't check the current package
         if (dep.name.indexOf(currentPackage.name) !== -1) return false;
+        // weird unknown package?
+        if (dep.name === 'undefined@undefined') return false;
 
-        var allowedDep = isAllowedDependency(dep);
-
-        if (!allowedDep && dep.licenses === 'UNKNOWN') {
+        if (warnOnUnknown && dep.licenses === 'UNKNOWN') {
           log(dep);
           return false;
         };
 
-        return !allowedDep;
+        return true;
       });
 
     if (prohibitedDeps.length) {

@@ -35,6 +35,7 @@ It will ignore (not fail) on `UNKNOWN` licenses and just print them out to the c
 
 `allowedPackages`: takes an array of objects. The only required field is `name`.
 `allowedLicenses`: takes an array of strings and calls `indexOf` on the licenses.
+`warnOnUnknown`: instead of erroring on packages with an `UNKNOWN` license, just warn. (false by default)
 
 ```js
 // ./config.js
@@ -52,7 +53,8 @@ module.exports = {
     "Apache",
     "ISC",
     "WTF"
-  ]
+  ],
+  warnOnUnknown: true
 };
 ```
 
