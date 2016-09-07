@@ -11,6 +11,7 @@ module.exports = function checkLicenses(config) {
   var allowedLicenses = config.allowedLicenses;
   var allowedPackages = config.allowedPackages;
   var warnOnUnknown = config.warnOnUnknown;
+  var configPath = config.configPath;
 
   function log(dep) {
     var type = 'INDIRECT DEP';
@@ -27,7 +28,7 @@ module.exports = function checkLicenses(config) {
       type = 'OPTIONALDEP';
     }
 
-    console.log(type + ' - ' + dep.name + ' ' + dep.licenses + ': ' + dep.repository);
+    console.error(type + ' - ' + dep.name + ' ' + dep.licenses + ': ' + dep.repository);
   }
 
   function isAllowedDependency(dependency) {
@@ -81,6 +82,19 @@ module.exports = function checkLicenses(config) {
         return aLower < bLower ? -1 : aLower > bLower ? 1 : 0;
       });
       prohibitedDeps.map(function(dep) { log(dep); });
+
+      console.log('');
+      console.log('If you need to add an exception for the disallowed packages,');
+      console.log('You will want to modify the config file: ' + configPath);
+      console.log('by adding an new entry to the allowedPackages array.');
+      console.log('');
+      console.log('It takes in an object with a name key:');
+      console.log('{');
+      console.log('  "name": "allowed-package-name-here",');
+      console.log('  "reason": "reason for allowing" // optional');
+      console.log('}');
+      console.log('For more info: check out the repo https://github.com/behance/license-to-fail');
+
       process.exit(1);
     }
   });
