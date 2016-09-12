@@ -31,10 +31,10 @@ $ ./node_modules/.bin/license-to-fail init
 
 ### Config
 
-It will ignore (not fail) on `UNKNOWN` licenses and just print them out to the console.
-
 `allowedPackages`: takes an array of objects. The only required field is `name`.
+
 `allowedLicenses`: takes an array of strings and calls `indexOf` on the licenses.
+
 `warnOnUnknown`: instead of erroring on packages with an `UNKNOWN` license, just warn. (false by default)
 
 ```js
