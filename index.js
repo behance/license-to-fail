@@ -8,9 +8,9 @@ function isAllowedPackage(allowedPackages, dependency) {
 
 module.exports = function checkLicenses(config) {
   var currentPackage = config.__currentPackage;
-  var allowedLicenses = config.allowedLicenses;
-  var allowedPackages = config.allowedPackages;
-  var warnOnUnknown = config.warnOnUnknown;
+  var allowedLicenses = config.allowedLicenses || [];
+  var allowedPackages = config.allowedPackages || [];
+  var warnOnUnknown = config.warnOnUnknown || false;
   var configPath = config.configPath;
 
   function log(dep) {
@@ -77,8 +77,8 @@ module.exports = function checkLicenses(config) {
       console.log('');
       console.log('Disallowed Licenses:');
       prohibitedDeps.sort(function(a, b) {
-        var aLower = a.licenses.toLowerCase();
-        var bLower = b.licenses.toLowerCase();
+        var aLower = Array.isArray(a) ? a.licenses[0].toLowerCase() : a.licenses.toLowerCase();
+        var bLower = Array.isArray(b) ? b.licenses[0].toLowerCase() : b.licenses.toLowerCase();
         return aLower < bLower ? -1 : aLower > bLower ? 1 : 0;
       });
       prohibitedDeps.map(function(dep) { log(dep); });
