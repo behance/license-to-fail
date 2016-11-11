@@ -8,9 +8,9 @@ function isAllowedPackage(allowedPackages, dependency) {
 
 module.exports = function checkLicenses(config) {
   var currentPackage = config.__currentPackage;
-  var allowedLicenses = config.allowedLicenses;
-  var allowedPackages = config.allowedPackages;
-  var warnOnUnknown = config.warnOnUnknown;
+  var allowedLicenses = config.allowedLicenses || [];
+  var allowedPackages = config.allowedPackages || [];
+  var warnOnUnknown = config.warnOnUnknown || false;
   var configPath = config.configPath;
 
   function log(dep) {
