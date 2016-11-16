@@ -1,5 +1,4 @@
-## license-to-fail [![npm](https://img.shields.io/npm/v/license-to-fail.svg)](https://www.npmjs.com/package/license-to-fail) [![travis](https://img.shields.io/travis/behance/license-to-fail/master.svg)](https://travis-ci.org/behance/license-to-fail)
-
+## license-to-fail [![npm](https://img.shields.io/npm/v/license-to-fail.svg)](https://www.npmjs.com/package/license-to-fail) [![travis](https://img.shields.io/travis/behance/license-to-fail/master.svg)](https://travis-ci.org/behance/license-to-fail) [![npm-downloads](https://img.shields.io/npm/dm/license-to-fail.svg)](https://www.npmjs.com/package/license-to-fail)
 
 Will error when any packages in `node_modules` don't satisfy your allowed licenses.
 
