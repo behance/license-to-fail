@@ -12,6 +12,7 @@ module.exports = function checkLicenses(config) {
   var allowedPackages = config.allowedPackages || [];
   var warnOnUnknown = config.warnOnUnknown || false;
   var configPath = config.configPath;
+  var ignoreDevDependencies = config.ignoreDevDependencies || false;
 
   function log(dep) {
     var type = 'INDIRECT DEP';
@@ -47,7 +48,8 @@ module.exports = function checkLicenses(config) {
   }
 
   checker.init({
-    start: process.cwd()
+    start: process.cwd(),
+    production: ignoreDevDependencies
   }, function(err, json) {
     var prohibitedDeps = Object.keys(json)
       .map(function(dep) {
