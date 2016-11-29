@@ -37,6 +37,7 @@ $ ./node_modules/.bin/license-to-fail init
 `warnOnUnknown`: instead of erroring on packages with an `UNKNOWN` license, just warn. (false by default)
 
 `ignoreDevDependencies`: do not check licenses for devDependencies. (false by default)
+
 ```js
 // ./config.js
 module.exports = {
