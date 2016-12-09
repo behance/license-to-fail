@@ -70,7 +70,7 @@ module.exports = {
         "name": "allowed-package-name-here",
       }
   ],
-    allowedLicenses: [
+    "allowedLicenses": [
       "MIT"
     ]
   }

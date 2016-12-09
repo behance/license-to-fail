@@ -32,7 +32,9 @@ if (configPath) {
   }
 }
 
-config.configPath = path.resolve(configPath);
+if (configPath) {
+  config.configPath = path.resolve(configPath);
+}
 config.__currentPackage = {
   name: packageJson.name,
   dependencies: packageJson.dependencies || [],
