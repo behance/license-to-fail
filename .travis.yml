@@ -10,7 +10,6 @@ cache:
 node_js:
 - '6'
 - '4'
-- '0.10'
 
 script:
 - npm test
