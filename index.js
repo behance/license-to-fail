@@ -13,6 +13,7 @@ module.exports = function checkLicenses(config) {
   var warnOnUnknown = config.warnOnUnknown || false;
   var configPath = config.configPath;
   var ignoreDevDependencies = config.ignoreDevDependencies || false;
+  var strictMode = config.strictMode || false;
 
   function log(dep) {
     var type = 'INDIRECT DEP';
@@ -43,7 +44,33 @@ module.exports = function checkLicenses(config) {
 
     return isAllowedPackage(allowedPackages, dependency) ||
     allowedLicenses.some(function(license) {
-      return licenses.toLowerCase().indexOf(license.toLowerCase()) !== -1;
+      if (strictMode) {
+        // Do exact check (also matching *)
+        license = license.toLowerCase();
+        licenses = licenses.toLowerCase();
+
+        // See if license contains "OR" and match either
+        // If a package contains more than one license separated by OR
+        // Then you get to choose which license you abide by
+        // So simply matching one will suffice
+        var ors = licenses.split(' or ').map(
+          function(o) {
+            return o.replace('(','').replace(')','');
+          }
+        );
+
+        if (ors.length > 1) {
+          return ors.some(function(r) {
+            return r === license;
+          });
+        }
+
+        return licenses === license ||
+               licenses === license + "*";
+      } else {
+        // Perform default fuzzy check (e.g. BSD or BSD-3-CLAUSE)
+        return licenses.toLowerCase().indexOf(license.toLowerCase()) !== -1;
+      }
     });
   }
 
