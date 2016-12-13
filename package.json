@@ -19,5 +19,8 @@
     "license-to-fail": "bin/license-to-fail.js"
   },
   "author": "Henry Zhu",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "jest": "^17.0.3"
+  }
 }
