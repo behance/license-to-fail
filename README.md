@@ -38,6 +38,8 @@ $ ./node_modules/.bin/license-to-fail init
 
 `ignoreDevDependencies`: do not check licenses for devDependencies. (false by default)
 
+`strictMode`: do not use fuzzy checking when validating licenses (e.g. BSD !== BSD-3-Clause). (false by default)
+
 ```js
 // ./config.js
 module.exports = {

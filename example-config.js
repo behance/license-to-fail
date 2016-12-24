@@ -32,6 +32,8 @@ module.exports = {
     "Apache",
     "BSD",
     "WTF",
-    "Public Domain"
+    "Public Domain",
+    "MPL",
+    "Unlicense"
   ]
 };

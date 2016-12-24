@@ -43,4 +43,4 @@ config.__currentPackage = {
   optionalDependencies: packageJson.optionalDependencies || []
 };
 
-require("../index")(config);
+require("../index")(config).check();

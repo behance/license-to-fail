@@ -6,6 +6,7 @@
   "files": [
     "bin",
     "index.js",
+    "src",
     "example-config.js"
   ],
   "dependencies": {
@@ -13,11 +14,14 @@
   },
   "scripts": {
     "check-license": "./bin/license-to-fail.js ./example-config.js",
-    "test": "npm run check-license"
+    "test": "ava && npm run check-license"
   },
   "bin": {
     "license-to-fail": "bin/license-to-fail.js"
   },
   "author": "Henry Zhu",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "ava": "^0.17.0"
+  }
 }
