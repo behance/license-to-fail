@@ -2,6 +2,7 @@
   "name": "license-to-fail",
   "version": "2.2.0",
   "description": "Exits when a license is found that does not match the whitelist passed in.",
+  "repository": "github:behance/license-to-fail",
   "main": "index.js",
   "files": [
     "bin",
