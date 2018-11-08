@@ -23,6 +23,9 @@ module.exports = {
       "name": "humane-js@3.2.2",
       "repo": "https://github.com/wavded/humane-js",
       "reason": "MIT in the README"
+    },
+    {
+      "name": "spdx-exceptions"
     }
   ],
   "disallowedPackages": [],
@@ -34,6 +37,7 @@ module.exports = {
     "WTF",
     "Public Domain",
     "MPL",
+    "CC-BY-3.0",
     "Unlicense"
   ]
 };
