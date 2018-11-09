@@ -2,7 +2,7 @@ var checker = require('license-checker');
 
 function isAllowedPackage(allowedPackages, dependency) {
   return allowedPackages.some(function(pkg) {
-    return pkg.name.indexOf(dependency.name.toLowerCase().split('@')[0]) !== -1;
+    return pkg.name.toLowerCase().indexOf(dependency.name.toLowerCase().split('@')[0]) !== -1;
   });
 }
 
