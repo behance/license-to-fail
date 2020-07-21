@@ -25,6 +25,11 @@ module.exports = {
       "reason": "MIT in the README"
     },
     {
+      "name": "symbol@0.2.3",
+      "repo": "https://github.com/seanmonstar/symbol",
+      "reason": "MPL-2.0 in LICENSE"
+    },
+    {
       "name": "spdx-exceptions"
     }
   ],
@@ -37,6 +42,7 @@ module.exports = {
     "WTF",
     "Public Domain",
     "MPL",
+    "MPL-2.0",
     "CC-BY-3.0",
     "Unlicense"
   ]
