@@ -1,4 +1,4 @@
-import test from 'ava';
+const test = require('ava');
 
 test('should fail on BSD-3-Clause if in strict mode and only BSD is whitelisted', (t) => {
   const checkLicenses = require('../check-licenses');
