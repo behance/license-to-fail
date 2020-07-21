@@ -37,6 +37,7 @@ module.exports = {
     "WTF",
     "Public Domain",
     "MPL",
+    "MPL-2.0",
     "CC-BY-3.0",
     "Unlicense"
   ]
