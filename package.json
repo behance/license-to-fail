@@ -9,6 +9,10 @@
     "src",
     "example-config.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/behance/license-to-fail.git"
+  },
   "dependencies": {
     "license-checker": "^25.0.1"
   },
